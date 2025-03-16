@@ -1,0 +1,11 @@
+@import './variable.scss';
+
+.mediaPage {
+    display: flex;
+}
+
+@media only screen and (max-width: $mid-width) {
+    .mediaPage {
+        display: block;
+    }
+}

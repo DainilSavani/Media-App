@@ -1,0 +1,1 @@
+export const isVideoFile = mediaUrl => /\.(mp4|mov|avi|mkv|flv|wmv|webm|ts|m4v|3gp)$/i.test(mediaUrl);

@@ -1,0 +1,41 @@
+@import '../../../../variable.scss';
+
+.inputForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#driveLink {
+    resize: none;
+}
+
+.submitBtn {
+    border-radius: 0.25rem;
+    height: 2rem;
+    background-color: rgb(99, 165, 240);
+    color: white;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.submitBtn:hover {
+    background-color: blue;
+}
+
+.formError {
+    color: red;
+    font-size: small;
+    text-align: left;
+}
+
+@media only screen and (max-width: $mid-width) {
+    #driveLink {
+        height: 1rem;   
+    }
+
+    .submitBtn {
+        height: 1.5rem;
+        margin-top: 0.3rem;
+    }
+}

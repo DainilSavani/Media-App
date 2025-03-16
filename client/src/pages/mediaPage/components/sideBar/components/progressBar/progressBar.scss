@@ -1,0 +1,15 @@
+@import '../../../../variable.scss';
+
+.progressBar {
+    margin-top: 1rem;
+}
+
+progress {
+    width: 100%;
+}
+
+@media only screen and (max-width: $mid-width) {
+    .progressBar {
+        margin-top: 0.4rem;
+    }
+}

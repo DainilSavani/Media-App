@@ -1,0 +1,54 @@
+@import '../../../../variable.scss';
+
+.navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+.tab {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 2rem;
+}
+
+.selectedTab {
+    background-color: black;
+    color: white;
+}
+
+@media only screen and (max-width: $mid-width) {
+    .navbar {
+        position: sticky;
+        top: 5rem;
+        overflow: hidden;
+    }
+
+    .tab {
+        margin: 0.7rem;
+        padding: 0.4rem 0.7rem;
+    }
+}
+
+@media only screen and (max-width: $small-width) {
+    .tab {
+        margin: 0.5rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .navbar {
+        justify-content: space-evenly;
+        font-size: small;
+    }
+}
+
+@media only screen and (max-width: $very-small-width) {
+    .navbar {
+        display: block;
+    }
+}
