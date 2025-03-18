@@ -10,7 +10,7 @@ const renderTab = (selectedTab, setSelectedTab) => (tabConfig, index) => (
     <div key={index} className={'tab ' + (selectedTab===tabConfig.id ? 'selectedTab' : null)} onClick={() => setSelectedTab(tabConfig.id)}>{tabConfig.name}</div>
 )
 
-const Navbar = ({ selectedTab, setSelectedTab }) => {
+const Navbar = ({ selectedTab, setSelectedTab, fetchMediaFiles }) => {
     return (
         <div className="navbar">
             {

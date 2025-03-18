@@ -2,14 +2,14 @@ import axios from 'axios';
 import io from 'socket.io-client';
 
 // Constants
-import { BASE_URL } from '../../../../mediaPage.constants';
+import { BASE_URL, PAGE_SIZE } from '../../../../mediaPage.constants';
 
-const saveMediaFile = async ({ driveLink, inputRef, setIsDownloading, setTotalFiles, setDownloadedFiles, setMediaFiles, totalFiles, downloadedFiles }) => {
+const saveMediaFile = async ({ driveLink, inputRef, setIsDownloading, setTotalFiles, setDownloadedFiles, setMediaFiles, selectedTab }) => {
     setIsDownloading(true);
     setDownloadedFiles([]);
-    const payload = { googleDriveUrl: driveLink };
+    const payload = { googleDriveUrl: driveLink, mediaType: selectedTab };
     try {
-        const response = await axios.post(`${BASE_URL}/api/media`, payload);
+        const response = await axios.post(`${BASE_URL}/api/media?limit=${PAGE_SIZE}`, payload);
         inputRef.current.value = '';
         setTotalFiles(response.data.totalFiles);
 
@@ -52,14 +52,14 @@ const validateForm = driveLink => {
     return null;
 }
 
-export const handleFormSubmit = ({ setError, inputRef, setIsDownloading, setTotalFiles, setDownloadedFiles, setMediaFiles, totalFiles, downloadedFiles }) => event => {
+export const handleFormSubmit = ({ setError, inputRef, setIsDownloading, setTotalFiles, setDownloadedFiles, setMediaFiles, selectedTab }) => event => {
     event.preventDefault();
     const driveLink = inputRef.current.value;
 
     const error = validateForm(driveLink);
     if (!error) {
         setError(null);
-        saveMediaFile({ driveLink, inputRef, setIsDownloading, setTotalFiles, setDownloadedFiles, setMediaFiles, totalFiles, downloadedFiles });
+        saveMediaFile({ driveLink, inputRef, setIsDownloading, setTotalFiles, setDownloadedFiles, setMediaFiles, selectedTab });
     } else {
         setError(error);
     }
